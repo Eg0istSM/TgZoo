@@ -276,10 +276,13 @@ def checking_answers(call: types.CallbackQuery):
         url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/114939dc-d35b-4999-a317-9858875cf56c.jpeg'
         bot.send_photo(call.message.chat.id, photo=(url), caption=f"О, да вы ЛЕВ!\n{animals['indian_lion']}")
     elif call.data == 'the_marten':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы лесная куница", )
     elif call.data == 'The_jackal':
+        url = ''
         bot.send_message(call.message.chat.id, "Ой кажется Вы шакал", )
     elif call.data == 'manul':
+        url = ''
         bot.send_message(call.message.chat.id, "О да Вы Манул", )
     elif call.data == 'capybara':
         bot.send_message(call.message.chat.id, "Вы капибара", )
