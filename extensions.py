@@ -1,0 +1,2 @@
+class AnswerException(Exception):
+    pass
