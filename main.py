@@ -285,44 +285,64 @@ def checking_answers(call: types.CallbackQuery):
         url = ''
         bot.send_message(call.message.chat.id, "О да Вы Манул", )
     elif call.data == 'capybara':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы капибара", )
     elif call.data == 'tamarin':
+        url = ''
         bot.send_message(call.message.chat.id, "О да Вы золотистый львиный тамарин", )
     elif call.data == 'giraffe':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы дикдик", )
     elif call.data == 'dicdic':
+        url = ''
         bot.send_message(call.message.chat.id, "О да Вы сетчатый жираф", )
     elif call.data == 'The scribe':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы Писец", )
     elif call.data == 'lynx':
+        url = ''
         bot.send_message(call.message.chat.id, "Да вы Рысь", )
     elif call.data == 'manul_s':
+        url = ''
         bot.send_message(call.message.chat.id, "Ой да Вы манул", )
     elif call.data == 'polar bear':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы Белый медведь", )
     elif call.data == 'walrus':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы морж", )
     elif call.data == 'larga':
+        url = ''
         bot.send_message(call.message.chat.id, "Да Вы ларга", )
     elif call.data == 'The blue ram':
+        url = ''
         bot.send_message(call.message.chat.id, "Ой да вы голубой баран", )
     elif call.data == 'navy seal':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы морской котик", )
     elif call.data == 'Snowy owl':
+        url = ''
         bot.send_message(call.message.chat.id, "Да вы Снежная сова", )
     elif call.data == 'Mallard':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы кряква", )
     elif call.data == 'Jackass penguin':
+        url = ''
         bot.send_message(call.message.chat.id, "Да вы Очковый пингвин", )
     elif call.data == 'Gentoo penguin':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы папуанский пингвин", )
     elif call.data == 'Lesser spotted eagle':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы Малый подорлик", )
     elif call.data == 'Long-eared owl':
+        url = ''
         bot.send_message(call.message.chat.id, "Да вы длинно-ухая сова", )
     elif call.data == 'Dracula parrot':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы орлиный попугай", )
     elif call.data == 'pinkandgreycockatoo':
+        url = ''
         bot.send_message(call.message.chat.id, "Вы розовый какаду", )
 
 
