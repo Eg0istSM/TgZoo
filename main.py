@@ -15,6 +15,15 @@ def start(message: telebot.types.Message):
                                       f"Для помощи введите /help \nДополнительная информация /info")
 
 
+# инфо об опеке
+@bot.message_handler(commands=['info'])
+def info(message: telebot.types.Message):
+    text = 'В зоопарке действует программа "Возьми животное под опеку"\n'
+    'Подробности по ссылке: \n'
+    'https://moscowzoo.ru/my-zoo/become-a-guardian/'
+    bot.send_message(message.chat.id, text)
+
+
 # вход в викторину
 @bot.message_handler(commands=['quiz'])
 def open_quiz(message):
