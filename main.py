@@ -10,9 +10,9 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start', 'help'])
 def start(message: telebot.types.Message):
     first_name = message.chat.first_name
-    bot.send_message(message.chat.id, f"Здравствуйте {first_name}\n"
-                                      f"Чтобы узнать ваше тотемное животное введите /quiz\n"
-                                      f"Для помощи введите /help \nДополнительная информация /info")
+    bot.send_message(message.chat.id, f"Здравствуйте, {first_name}\n"
+                                      "Чтобы узнать ваше тотемное животное введите /quiz\n"
+                                      "Для помощи введите /help \nДополнительная информация /info")
 
 
 # инфо об опеке
@@ -281,78 +281,98 @@ def question_22(call: types.CallbackQuery):
 
 @bot.callback_query_handler(func=lambda call: call.data)
 def checking_answers(call: types.CallbackQuery):
-    if call.data == 'indian_lion':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/114939dc-d35b-4999-a317-9858875cf56c.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"О, да вы ЛЕВ!\n{animals['indian_lion']}")
-    elif call.data == 'the_marten':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/898b8719-43fd-4438-b184-334b0ec62cb4.jpg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы лесная куница\n{animals['the_marten']}")
-    elif call.data == 'The_jackal':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/3aed64d4-c54a-44de-a527-30e097b39f98.jpg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Ой кажется Вы шакал\n{animals['The_jackal']}")
-    elif call.data == 'manul':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/d7b75e62-45e5-4a75-a3b1-17dbb31e6fea.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"О да Вы Манул\n{animals['manul']}")
-    elif call.data == 'capybara':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/df1e1de9-6e0f-49aa-a019-14d9d320e0c4.jpg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы капибара\n{animals['capybara']}")
-    elif call.data == 'tamarin':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/8e224d32-0cb7-4588-a942-710ce9a2b8aa.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"О да Вы золотистый львиный тамарин\n{animals['tamarin']}")
-    elif call.data == 'giraffe':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/1699340a-0f5a-46e8-97ea-98491d374584.jpg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"О да Вы сетчатый жираф\n{animals['giraffe']}")
-    elif call.data == 'dicdic':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/6de41b59-e76e-46a2-a18b-ec04f7f27bbc.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы дикдик\n{animals['dicdic']}")
-    elif call.data == 'The scribe':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/c41d53da-8b31-4c2b-9011-01cccc81a899.jpg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы Писец\n{animals['The scribe']}")
-    elif call.data == 'lynx':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/db07be03-f66e-4a59-9d77-b84a717b7d31.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да вы Рысь\n{animals['lynx']}")
-    elif call.data == 'manul_s':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/d7b75e62-45e5-4a75-a3b1-17dbb31e6fea.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Ой да Вы манул\n{animals['manul_s']}")
-    elif call.data == 'polar bear':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/22c1783b-0644-434d-9b35-2143c5505033.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы Белый медведь\n{animals['polar bear']}")
-    elif call.data == 'walrus':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/3198de3d-df5f-47a2-9abe-529d2ef11623.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы морж\n{animals['walrus']}")
-    elif call.data == 'larga':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/8e89039a-222e-4ae0-92f2-808dd3d4d76d.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да Вы ларга\n{animals['larga']}")
-    elif call.data == 'The blue ram':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/6c627b5f-b6c6-45b8-936a-b8d68b57eb56.png'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Ой да вы голубой баран\n{animals['The blue ram']}")
-    elif call.data == 'navy seal':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/9ce2f8cd-fb13-45a6-8853-4b9dea4af851.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы морской котик\n{animals['navy seal']}")
-    elif call.data == 'Snowy owl':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/042d7c00-9abf-4553-9b3d-eedd08f72090.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да вы Снежная сова\n{animals['Snowy owl']}")
-    elif call.data == 'Mallard':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/abb0a482-03a2-4e8b-940e-a7d4ed50778c.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы кряква\n{animals['Mallard']}")
-    elif call.data == 'Jackass penguin':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/68cec806-a690-49ca-842c-263dfb9dae44.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да вы Очковый пингвин\n{animals['Jackass penguin']}")
-    elif call.data == 'Gentoo penguin':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/2cd872b5-7f55-481e-a7d1-159c4d5f0ca2.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы папуанский пингвин\n{animals['Gentoo penguin']}")
-    elif call.data == 'Lesser spotted eagle':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/837235d3-a5eb-4a10-943a-c04874710594.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы Малый подорлик\n{animals['Lesser spotted eagle']}")
-    elif call.data == 'Long-eared owl':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/380f0859-78ba-463e-a7e5-daf7107e62aa.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да вы длинно-ухая сова\n{animals['Long-eared owl']}")
-    elif call.data == 'Dracula parrot':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/4e17576f-4082-4250-b405-1d8f987b28bd.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы орлиный попугай\n{animals['Dracula parrot']}")
-    elif call.data == 'pinkandgreycockatoo':
-        url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/47eb38a5-b36f-49c0-bbaa-4b26d4cc7e92.jpeg'
-        bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы розовый какаду\n{animals['pinkandgreycockatoo']}")
+    try:
+        if call.data == 'indian_lion':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/114939dc-d35b-4999-a317-9858875cf56c.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"О, да вы ЛЕВ!\n{animals['indian_lion']}")
+        elif call.data == 'the_marten':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/898b8719-43fd-4438-b184-334b0ec62cb4.jpg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы лесная куница\n{animals['the_marten']}")
+        elif call.data == 'The_jackal':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/3aed64d4-c54a-44de-a527-30e097b39f98.jpg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Ой кажется Вы шакал\n{animals['The_jackal']}")
+        elif call.data == 'manul':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/d7b75e62-45e5-4a75-a3b1-17dbb31e6fea.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"О да Вы Манул\n{animals['manul']}")
+        elif call.data == 'capybara':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/df1e1de9-6e0f-49aa-a019-14d9d320e0c4.jpg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы капибара\n{animals['capybara']}")
+        elif call.data == 'tamarin':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/8e224d32-0cb7-4588-a942-710ce9a2b8aa.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"О да Вы золотистый львиный тамарин\n{animals['tamarin']}")
+        elif call.data == 'giraffe':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/1699340a-0f5a-46e8-97ea-98491d374584.jpg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"О да Вы сетчатый жираф\n{animals['giraffe']}")
+        elif call.data == 'dicdic':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/6de41b59-e76e-46a2-a18b-ec04f7f27bbc.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы дикдик\n{animals['dicdic']}")
+        elif call.data == 'The scribe':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/c41d53da-8b31-4c2b-9011-01cccc81a899.jpg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы Писец\n{animals['The scribe']}")
+        elif call.data == 'lynx':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/db07be03-f66e-4a59-9d77-b84a717b7d31.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да вы Рысь\n{animals['lynx']}")
+        elif call.data == 'manul_s':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/d7b75e62-45e5-4a75-a3b1-17dbb31e6fea.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Ой, да Вы манул\n{animals['manul_s']}")
+        elif call.data == 'polar bear':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/22c1783b-0644-434d-9b35-2143c5505033.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы Белый медведь\n{animals['polar bear']}")
+        elif call.data == 'walrus':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/3198de3d-df5f-47a2-9abe-529d2ef11623.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы морж\n{animals['walrus']}")
+        elif call.data == 'larga':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/8e89039a-222e-4ae0-92f2-808dd3d4d76d.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да Вы ларга\n{animals['larga']}")
+        elif call.data == 'The blue ram':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/6c627b5f-b6c6-45b8-936a-b8d68b57eb56.png'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Ой, да Вы голубой баран\n{animals['The blue ram']}")
+        elif call.data == 'navy seal':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/9ce2f8cd-fb13-45a6-8853-4b9dea4af851.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы морской котик\n{animals['navy seal']}")
+        elif call.data == 'Snowy owl':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/042d7c00-9abf-4553-9b3d-eedd08f72090.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Да Вы Снежная сова\n{animals['Snowy owl']}")
+        elif call.data == 'Mallard':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/abb0a482-03a2-4e8b-940e-a7d4ed50778c.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url), caption=f"Вы кряква\n{animals['Mallard']}")
+        elif call.data == 'Jackass penguin':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/68cec806-a690-49ca-842c-263dfb9dae44.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Да Вы Очковый пингвин\n{animals['Jackass penguin']}")
+        elif call.data == 'Gentoo penguin':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/2cd872b5-7f55-481e-a7d1-159c4d5f0ca2.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Вы папуанский пингвин\n{animals['Gentoo penguin']}")
+        elif call.data == 'Lesser spotted eagle':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/837235d3-a5eb-4a10-943a-c04874710594.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Вы Малый подорлик\n{animals['Lesser spotted eagle']}")
+        elif call.data == 'Long-eared owl':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/380f0859-78ba-463e-a7e5-daf7107e62aa.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Да Вы длинно-ухая сова\n{animals['Long-eared owl']}")
+        elif call.data == 'Dracula parrot':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/4e17576f-4082-4250-b405-1d8f987b28bd.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Вы орлиный попугай\n{animals['Dracula parrot']}")
+        elif call.data == 'pinkandgreycockatoo':
+            url = 'https://storage.moscowzoo.ru/storage/647edc2a70bb5462366280fc/images/animals/47eb38a5-b36f-49c0-bbaa-4b26d4cc7e92.jpeg'
+            bot.send_photo(call.message.chat.id, photo=(url),
+                           caption=f"Вы розовый какаду\n{animals['pinkandgreycockatoo']}")
+    except:
+        pass
+
+    else:
+        kb = types.InlineKeyboardMarkup(row_width=1)
+        btn1 = types.InlineKeyboardButton(text='Опекунство', url='https://moscowzoo.ru/about/guardianship')
+        btn2 = types.InlineKeyboardButton(text='Пройти заново', callback_data='yes')
+        kb.add(btn1, btn2, )
+        bot.send_message(call.message.chat.id,
+                         'Викторина закончена, Вы можете ознакомиться с программой "Опекунство" подробнее или пройти винторину заново.',
+                         reply_markup=kb)
 
 
 bot.polling()
